@@ -1,0 +1,11 @@
+@import "./styles.css";
+
+.error {
+  min-height: 50vh;
+  font-family: "Jost";
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}

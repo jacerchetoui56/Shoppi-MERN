@@ -1,0 +1,243 @@
+@import "styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap");
+
+.landing {
+  position: relative;
+  min-height: 105vh;
+}
+
+.chev-right,
+.chev-left {
+  position: absolute;
+  top: 50%;
+  color: white;
+  transform: translateY(-50%);
+  padding: 2rem 0.75rem;
+  background-color: rgba(41, 38, 33, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 999;
+}
+.chev-right {
+  right: 0;
+}
+.chev-left {
+  left: 0;
+}
+.chev-right > svg,
+.chev-left > svg {
+  width: 1rem;
+  z-index: 99999;
+  color: white;
+  fill: currentColor;
+}
+.chev-left:hover,
+.chev-right:hover {
+  background-color: var(--button-gray);
+}
+
+.landing .first,
+.landing .second {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transition: 0.3s;
+}
+.landing .first.show,
+.landing .second.show {
+  opacity: 1;
+}
+.landing .first {
+  background-image: url("../../public/images/man.webp");
+  margin-left: 4rem;
+}
+.landing .second {
+  background-image: url(../../public/images/man2.webp);
+}
+.landing .second .text {
+  margin-right: 6rem;
+}
+
+.landing .second {
+  justify-content: end;
+}
+.landing .text {
+  text-align: center;
+  max-width: 450px;
+  font-family: "Jost", sans-serif;
+  margin: 0 4rem;
+  z-index: 90;
+}
+.landing .text h3 {
+  font-size: 2.75rem;
+  font-family: "Clicker Script", cursive;
+  color: var(--orange);
+  font-weight: 300;
+}
+.landing .text h1 {
+  font-size: 3.5rem;
+  white-space: nowrap;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--button-gray);
+  transition-delay: 1s;
+  transform: scale(0);
+}
+.landing .first.show h1,
+.landing .second.show h1 {
+  animation: bounceIn 0.8s ease-in-out;
+  transform: scale(1);
+}
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  90% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.landing .text p {
+  color: var(--medium-gray);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  transition: 0.8s;
+  transition-delay: 0.4s;
+  transform: translateY(3rem);
+  opacity: 0;
+}
+.landing .first.show p,
+.landing .second.show p {
+  opacity: 1;
+  transform: translateY(0);
+}
+.landing .text button {
+  padding: 0.75rem 2.75rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Jost", sans-serif;
+  font-weight: 600;
+  background-color: var(--button-gray);
+  border: solid 1px var(--button-gray);
+  color: white;
+  transition: 0.3s;
+  transform: translateY(3rem);
+  opacity: 0;
+  cursor: pointer;
+}
+.landing .first.show button,
+.landing .second.show button {
+  transition: 0.5s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.landing .text button:hover {
+  background-color: transparent;
+  color: var(--button-gray);
+}
+
+.landing .chevron-left,
+.landing .chevron-right {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translateY(-50%);
+  /* background-color: ; */
+  padding: 2rem 1rem;
+  color: black;
+  z-index: 3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.landing .chevron-right {
+  right: 0;
+}
+.landing .chevron-left:hover,
+.landing .chevron-right:hover {
+  background-color: black;
+}
+
+@media (max-width: 650px) {
+  .landing .second .text {
+    margin: 0;
+  }
+  .landing .first,
+  .landing .second {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .landing .first,
+  .landing .second {
+    justify-content: center;
+    background-position: 43% 50%;
+  }
+  .landing .first {
+    justify-content: center;
+    background-position: 55% 50%;
+  }
+  .landing .first {
+    background-image: linear-gradient(to top, black, transparent),
+      url("../../public/images/man.webp");
+  }
+
+  .landing .second {
+    background-image: linear-gradient(to top, black, transparent),
+      url("../../public/images/man2.webp");
+  }
+
+  .landing .text {
+    width: 95%;
+    transform: translateY(-40%);
+    margin: 0;
+  }
+  .landing .text h3 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+  .landing .text h1 {
+    font-size: 2.5rem;
+  }
+  .landing .text h1,
+  .landing .text p {
+    margin-bottom: 1.75rem;
+    color: white;
+  }
+  .landing .text p {
+    font-size: 1.5rem;
+  }
+  .landing button {
+    transform: translateY(5rem);
+    background-color: transparent !important;
+    color: white !important;
+    border-color: white !important;
+  }
+  .landing button:hover {
+    background-color: white !important;
+    color: black !important;
+  }
+}

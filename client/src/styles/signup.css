@@ -1,0 +1,114 @@
+@import "styles.css";
+
+.signup {
+  font-family: "Jost", sans-serif;
+  color: #140c40;
+}
+
+.signup .container {
+  width: min(750px, 95%);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px 0 rgb(13 12 13 / 20%);
+}
+
+.signup .header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.signup .header h1 {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.signup .header h4 {
+  font-weight: 400;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-form > div label {
+  text-transform: capitalize;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.signup-form > div input[type="text"],
+.signup-form > div input[type="email"],
+.signup-form > div input[type="password"] {
+  font-family: "Jost";
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.25rem 0.75rem 1.25rem;
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+.signup-form input:focus {
+  outline: none;
+  border: 2px solid var(--orange);
+}
+
+.signup input::-webkit-input-placeholder {
+  font-size: 0.85rem;
+  line-height: 3;
+}
+
+.message {
+  text-transform: capitalize;
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  visibility: hidden;
+}
+.message.bad-res {
+  visibility: visible;
+  color: red;
+}
+.message.good-res {
+  visibility: visible;
+  color: green;
+}
+
+.signup-form .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.signup-form .footer > div {
+  font-weight: 400;
+}
+.signup-form .footer > div span {
+  color: var(--orange);
+}
+
+.signup-form button {
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .signup-form .footer {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: start;
+  }
+  .signup-form button {
+    margin-top: 1rem;
+  }
+}

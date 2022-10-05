@@ -1,0 +1,231 @@
+@import "styles.css";
+
+footer {
+  background-color: #171613;
+  font-family: "Jost", sans-serif;
+}
+
+.footer-top {
+  width: 85%;
+  margin: 0 auto;
+  padding: 4rem 0 3rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  border-bottom: solid 1px #ffffff24;
+}
+.footer-top-left {
+  width: 25%;
+  color: white;
+}
+.footer-top-left h2 {
+  margin-bottom: 0.5rem;
+}
+.footer-top-left p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.footer-top-left .socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 1.75rem;
+  display: none;
+}
+.footer-top-left .socials .icon {
+  color: #677f8b;
+  font-size: 1.4rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.footer-top-center {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
+}
+.footer-top-center input {
+  width: 65%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Jost", sans-serif;
+}
+.footer-top-center input:focus {
+  outline: none;
+}
+.footer-top-center button {
+  background-color: var(--orange);
+  border: none;
+  padding: 1.1rem 1.25rem;
+  font-family: "Jost", sans-serif;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.footer-top-right {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 1.75rem;
+}
+.footer-top-right .icon {
+  color: #677f8b;
+  font-size: 1.4rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.footer-top-right .icon:hover {
+  color: var(--orange);
+  transform: rotateY(180deg);
+}
+
+/* !======== footer center ========= */
+
+.footer-center {
+  width: 85%;
+  margin: 2rem auto 0;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding-bottom: 5rem;
+  padding-top: 2.5rem;
+  border-bottom: solid 1px #ffffff24;
+}
+.footer-center .logo {
+  flex: 2;
+  padding: 0 2rem 2rem;
+}
+
+.footer-center .links {
+  flex: 6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-center .col {
+  color: white;
+}
+.footer-center .col h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+.footer-center .col li {
+  margin-bottom: 0.75rem;
+  transition: 0.3s;
+}
+.footer-center .col a {
+  color: #bbb9b5;
+}
+.footer-center .col a:hover {
+  text-decoration: underline;
+}
+
+/* !======== footer bottom : credit======= */
+
+.footer-bottom {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.footer-bottom p {
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #bbb9b5;
+}
+
+.footer-bottom span a {
+  letter-spacing: 1px;
+  color: var(--orange);
+}
+.footer-bottom span a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .footer-top-right {
+    display: none;
+  }
+  .footer-top-left {
+    width: 35%;
+  }
+  .footer-top-left .socials {
+    display: flex;
+  }
+}
+@media (max-width: 980px) {
+  .footer-top {
+    width: 90%;
+  }
+  .footer-center {
+    flex-direction: column;
+  }
+  .footer-center .logo {
+    padding-left: 4rem;
+  }
+  .footer-center .links {
+    padding: 0 4rem 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2rem;
+  }
+  .footer-center {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 780px) {
+  .footer-top-left .socials {
+    display: none;
+  }
+  .footer-top-right {
+    display: flex;
+  }
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-top-center,
+  .footer-top-left,
+  .footer-top-right {
+    width: 80%;
+    justify-content: start;
+  }
+}
+@media (max-width: 600px) {
+  .footer-top-left .socials {
+    display: none;
+  }
+  .footer-top-right {
+    display: flex;
+  }
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-top-center,
+  .footer-top-left,
+  .footer-top-right {
+    width: 100%;
+    justify-content: start;
+  }
+
+  .footer-center .links {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 2rem;
+    padding-left: 1rem;
+  }
+  .footer-center .logo {
+    padding-left: 1rem;
+  }
+}

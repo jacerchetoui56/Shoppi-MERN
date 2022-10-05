@@ -1,0 +1,289 @@
+@import "styles.css";
+
+.product-details {
+  font-family: "Jost";
+  color: #292621;
+}
+.product-details .header {
+  padding: 2.25rem 0;
+  display: block;
+  background-color: #f3ead8;
+  text-align: center;
+}
+.product-details .header h1 {
+  margin-bottom: 0.75rem;
+}
+
+.product-details .header p,
+.product-details .header a {
+  color: #74706b;
+}
+.product-details .container .card {
+  display: flex;
+  justify-content: center;
+  width: min(1000px, 95%);
+  margin: 2.5rem auto;
+  background-color: var(--orange);
+  color: white;
+  padding: 2rem;
+}
+
+.product-details .card .image {
+  width: 285px;
+  height: 340px;
+}
+.product-details .card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-details .card .infos {
+  flex: 1;
+}
+
+.product-details .card .infos {
+  text-align: start;
+  padding: 2rem 0 2rem 2rem;
+}
+
+.product-details .card .infos h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.product-details .card .infos h5 {
+  color: rgba(255, 255, 255, 0.699);
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.product-details .card .infos .price {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-details .product-reviews {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0.75rem 0 1rem;
+}
+.product-details .product-reviews > div > * {
+  font-size: 1.25rem;
+}
+.product-details .product-reviews h6 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: "Jost";
+}
+
+.product-details .product-buttons {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 0 1rem;
+}
+.product-buttons span {
+  border: none;
+  background-color: white;
+  padding: 0.85rem 2rem;
+  font-weight: 500;
+  color: #222;
+  font-family: "Jost";
+  font-size: 0.95rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+  box-shadow: 0 0 10px -5px white;
+  overflow: hidden;
+  z-index: 1;
+}
+.product-buttons.Not span {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.product-buttons span::before {
+  position: absolute;
+  content: "";
+  width: 101%;
+  height: 101%;
+  background-color: var(--orange);
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform-origin: 0 0;
+}
+.product-buttons span:hover::before {
+  z-index: -1;
+  transform: scaleX(1);
+}
+.product-buttons span:hover {
+  color: white;
+  box-shadow: 0 0 15px -2px white;
+}
+
+.product-details .share {
+  cursor: pointer;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: solid 1px white;
+  color: white;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.product-details .share:hover {
+  color: var(--orange);
+}
+.product-details .share::before {
+  content: "";
+  position: absolute;
+  width: 101%;
+  height: 101%;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: center 0;
+  background-color: white;
+  transition: transform 0.5s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+.product-details .share:hover::before {
+  z-index: -1;
+  transform: scaleY(1);
+}
+
+.product-details .share > * {
+  width: 1.25rem !important;
+  font-size: 1.25rem;
+}
+
+.informations {
+  width: min(1000px, 95%);
+  margin: 8rem auto 0;
+}
+.informations .informations-top {
+  width: fit-content;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+.informations-top .option {
+  margin: 0 1.5rem 0 0;
+  padding: 0 0.75rem 2.5rem 0.75rem;
+  cursor: pointer;
+  border-bottom: solid 4px transparent;
+}
+.informations-top .option.active {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+.informations-content {
+  margin: 3rem 0;
+  line-height: 1.7;
+  width: 80%;
+}
+
+.informations .product-author {
+  display: flex;
+  gap: 1rem;
+  justify-content: start;
+  align-items: center;
+}
+.informations .product-author img {
+  padding: 1rem;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+.comment .image {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comment .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.comment > div {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comments-form {
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.comments-form label {
+  font-size: 1.25rem;
+  display: block;
+  font-weight: 500;
+}
+.comments-form input {
+  font-family: "Jost";
+  font-size: 0.95rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  border: none;
+  margin-bottom: 0.75rem;
+}
+.comments-form input:focus {
+  border: none;
+  outline: none;
+}
+
+.comments-form button {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--orange);
+  border-radius: 0.5rem;
+  color: white;
+  font-family: "Jost";
+  font-size: 0.85rem;
+  border: none;
+  margin: 0.5rem 0 0;
+  cursor: pointer;
+}
+
+@media (max-width: 680px) {
+  .product-details .card .image {
+    width: 100%;
+  }
+  .product-details .container .card {
+    flex-direction: column;
+  }
+  .product-details .card .infos {
+    padding: 1rem 0 0 0;
+  }
+  .informations-content {
+    width: 100%;
+  }
+  .informations .informations-top {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .informations-top .option {
+    margin: 0;
+  }
+}

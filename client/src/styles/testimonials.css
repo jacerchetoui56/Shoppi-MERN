@@ -1,0 +1,116 @@
+@import "styles.css";
+
+.testimonials {
+  font-family: "Jost", sans-serif;
+  background-color: var(--creamy);
+  padding: 2.5rem;
+}
+.title {
+  font-family: "Jost", sans-serif;
+  padding: 2rem 0 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--button-gray);
+}
+
+/* !=========== review ============ */
+
+.reviews {
+  width: min(800px, 80%);
+  margin: 1.5rem auto;
+  position: relative;
+  min-height: max(30vh, 250px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.review {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  transition: 0.5s;
+  opacity: 0;
+}
+/* !toggling the reviews */
+
+.review.current {
+  opacity: 1;
+  z-index: 1;
+}
+.review.next {
+  transform: translateX(calc(-50% + 60vw));
+  opacity: 0;
+}
+.review.previous {
+  transform: translateX(calc(-50% - 60vw));
+  opacity: 0;
+}
+
+/* !------------ */
+
+.author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.author > div {
+  text-align: start;
+}
+.review-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.review-name {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--button-gray);
+}
+.review-title {
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0 0 0.5rem;
+  color: hsl(209, 61%, 16%);
+}
+.review-quote {
+  font-family: "Jost", sans-serif;
+  margin-top: 2rem;
+  color: var(--button-gray);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.testimonials button {
+  position: absolute;
+  top: 50%;
+  font-size: 1.5rem;
+  transform: translateY(-50%);
+
+  border: none;
+  color: var(--medium-gray);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: transparent;
+}
+.next-button {
+  right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .reviews {
+    width: 95%;
+  }
+  .testimonials {
+    padding: 2rem 0;
+  }
+}

@@ -1,0 +1,165 @@
+@import "styles.css";
+
+.contact {
+  font-family: "Jost", sans-serif;
+}
+.contact .header {
+  padding: 2.25rem 0;
+  display: block;
+  background-color: #f3ead8;
+  text-align: center;
+}
+.contact .header h1 {
+  margin-bottom: 0.75rem;
+}
+.contact .header p,
+.contact .header a {
+  color: #74706b;
+}
+
+.contact .container {
+  width: min(1150px, 98%);
+  margin: 3rem auto 2rem;
+  padding: 0 2rem;
+}
+
+.contact h1 {
+  text-align: center;
+}
+
+.contact .container {
+  display: flex;
+  gap: 2.5rem;
+}
+.contact main {
+  flex: 3;
+}
+.contact aside {
+  flex: 1;
+}
+
+.contact .contact-form h4 {
+  font-size: 1.75rem;
+  color: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.contact main .contact-form > div {
+  display: grid;
+  grid-template-areas:
+    "textarea textarea"
+    "name email"
+    "subject subject";
+  grid-gap: 1rem;
+}
+.contact-form textarea,
+.contact-form input {
+  padding: 0.5rem;
+  border: solid 1px #ebebeb;
+  font-family: "Jost";
+  transition: border-color 0.3s;
+  font-family: 1rem;
+}
+.contact-form textarea:focus,
+.contact-form input:focus {
+  border-color: var(--orange);
+  outline: none;
+}
+
+.contact-form button {
+  border: solid 1px var(--orange);
+  margin: 0.5rem 0;
+  padding: 1rem 2.25rem;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-size: 0.85rem;
+  font-family: "jost";
+  background-color: white;
+  transition: 0.3s;
+}
+.contact-form button:hover {
+  background-color: var(--orange);
+  color: white;
+  cursor: pointer;
+}
+.contact-form textarea {
+  grid-area: textarea;
+  resize: none;
+}
+.contact-form .email {
+  grid-area: email;
+}
+.contact-form .name {
+  grid-area: name;
+}
+.contact-form .subject {
+  grid-area: subject;
+}
+
+.message {
+  font-family: "Jost";
+  font-size: 1.25rem;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  min-height: 3rem;
+}
+.message.bad-res {
+  color: red;
+  visibility: visible;
+}
+.message.good-res {
+  color: green;
+  visibility: visible;
+}
+
+.contact aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  padding-top: 0;
+}
+.contact .contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+.contact .contact-item .icon {
+  color: #8a8a8a;
+  font-size: 2rem;
+}
+.contact .contact-item h5 {
+  font-size: 1rem;
+  color: #2a2a2a;
+  font-weight: 500;
+}
+.contact .contact-item p {
+  color: #8a8a8a;
+  text-transform: capitalize;
+}
+
+@media (max-width: 985px) {
+  .contact .container {
+    flex-direction: column;
+    padding: 0;
+  }
+  .contact main,
+  .contact aside {
+    width: min(750px, 95%);
+    margin: 0 auto;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact main .contact-form > div {
+    grid-template-areas:
+      "textarea"
+      "name"
+      "email"
+      "subject";
+  }
+}

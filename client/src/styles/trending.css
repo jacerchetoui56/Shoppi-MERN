@@ -1,0 +1,147 @@
+@import "styles.css";
+
+.trending .container {
+  width: min(1000px, 90%);
+  margin: 3rem auto;
+  font-family: "Jost";
+}
+
+.trending-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.trending-top h2 {
+  font-size: 2rem;
+  color: var(--button-gray);
+}
+.trending-top .options {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.trending-top .option {
+  font-size: 1.1rem;
+  padding-bottom: 1.75rem;
+  border-bottom: solid 4px transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.trending-top .option:hover,
+.trending-top .option.active {
+  border-bottom-color: var(--orange);
+}
+
+.trending .main {
+  display: flex;
+  gap: 1rem;
+}
+
+.trending .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.trending .card .text {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.trending .text h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.trending .prices {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.trending .price {
+  color: var(--medium-gray);
+}
+.trending .old-price {
+  color: var(--light-gold);
+  text-decoration: line-through;
+}
+
+.card .image {
+  width: 250px;
+  height: 285px;
+}
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card .buttons {
+  z-index: 9999;
+  position: absolute;
+  top: 50%;
+  background-color: white;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+.card .buttons .icon {
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  padding: 0.75rem 1.25rem;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.card .buttons {
+  transition: 0.3s;
+  opacity: 0;
+}
+.card:hover .buttons {
+  opacity: 1;
+}
+
+.card .buttons .icon:hover {
+  background-color: var(--orange);
+  color: white;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 25px !important;
+  color: rgba(32, 69, 112, 0.3) !important;
+  transition: 0.3s;
+}
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: var(--orange) !important;
+}
+
+@media (max-width: 1000px) {
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+}
+
+@media (max-width: 578px) {
+  .slick-next::before,
+  .slick-prev::before {
+    font-size: 1.5rem !important;
+  }
+  .trending-top {
+    flex-direction: column;
+    align-items: start;
+  }
+  .trending-top h2 {
+    margin-bottom: 2rem;
+    font-size: 2.25rem;
+  }
+  .trending-top .option {
+    font-size: 1.5rem;
+  }
+}

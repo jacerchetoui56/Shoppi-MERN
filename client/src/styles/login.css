@@ -1,0 +1,133 @@
+@import "styles.css";
+
+.login {
+  font-family: "Jost", sans-serif;
+  color: #140c40;
+}
+
+.login .container {
+  width: min(750px, 95%);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px 0 rgb(13 12 13 / 20%);
+}
+
+.login .header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.login .header h1 {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.login .header h4 {
+  font-weight: 400;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-form > div label {
+  text-transform: capitalize;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.login-form > div input[type="text"],
+.login-form > div input[type="password"] {
+  font-family: "Jost";
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.25rem 0.75rem 1.25rem;
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+}
+.login-form .checkbox {
+  display: flex;
+  align-items: center;
+}
+.login-form input:focus {
+  outline: none;
+  border: 2px solid var(--orange);
+}
+.login-form > div input[type="checkbox"] {
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin-right: 0.25rem;
+}
+.login input::-webkit-input-placeholder {
+  font-size: 0.85rem;
+  line-height: 3;
+}
+
+.login-form .forgot-pass {
+  color: var(--orange);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.login-form .form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-form .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.login-form .footer > div {
+  font-weight: 400;
+}
+.login-form .footer > div span {
+  color: var(--orange);
+}
+
+.login-form button {
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.message {
+  text-transform: capitalize;
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  visibility: hidden;
+}
+.message.bad-res {
+  visibility: visible;
+  color: red;
+}
+.message.good-res {
+  visibility: visible;
+  color: green;
+}
+
+@media (max-width: 600px) {
+  .login-form .form-options {
+    flex-direction: column;
+    align-items: start;
+  }
+  .login-form .footer {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: start;
+  }
+  .login-form button {
+    margin-top: 1rem;
+  }
+}

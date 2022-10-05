@@ -1,0 +1,220 @@
+@import "styles.css";
+.cart {
+  font-family: "Jost", sans-serif;
+}
+.cart .header {
+  padding: 2.25rem 0;
+  display: block;
+  background-color: #f3ead8;
+  text-align: center;
+}
+.cart .header h1 {
+  margin-bottom: 0.75rem;
+}
+.cart .header p,
+.cart .header a {
+  color: #74706b;
+}
+
+.cart .container {
+  width: min(1000px, 98%);
+  margin: 3rem auto 2rem;
+}
+
+.cart .titles {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+.cart .title {
+  text-align: start;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #797979;
+}
+
+.cart .item {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
+  padding: 0 0 1.5rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #ebebeb;
+}
+.cart .item > p,
+.cart .total {
+  display: flex;
+  align-items: center;
+}
+.cart .cart-buttons {
+  display: flex;
+}
+.cart .cart-buttons p {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ebebeb;
+}
+.cart .cart-buttons button {
+  cursor: pointer;
+  display: block;
+  border: 1px solid #ebebeb;
+}
+.cart .cart-buttons .plus {
+  padding: 0.5rem 0.6rem;
+  border-bottom-color: #cecece;
+}
+.cart .cart-buttons .moins {
+  padding: 0 0.6rem;
+}
+.cart .product-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: solid 3px #ebebeb;
+}
+.cart .product-title h2 {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.cart .product-title img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.cart .cart-total {
+  width: min(1000px, 98%);
+  margin: 0 auto;
+}
+.cart .cart-total p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: end;
+  padding: 2.5rem 0 1rem;
+  padding-right: 2rem;
+}
+.cart .cart-total span {
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.cart .cart-empty .icon {
+  color: #c4c4c4;
+  font-size: 3rem;
+}
+.cart .cart-empty h5 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  color: #c4c4c4;
+}
+
+.cart .footer {
+  width: min(1000px, 98%);
+  margin: 1.5rem auto;
+  text-align: start;
+}
+
+.cart .footer button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--orange);
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Jost";
+  color: white;
+  border: none;
+  margin-right: 1rem;
+}
+
+.country .selected-option {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f4f4f4;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.country .selected-option span::selection {
+  background-color: transparent;
+}
+.country {
+  position: relative;
+  width: fit-content;
+}
+.country .country-options {
+  position: absolute;
+  top: 102%;
+  left: 0;
+  width: 100%;
+  background-color: #f4f4f4;
+  transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: top center;
+}
+.country .country-options.open {
+  transform: scale(1);
+  opacity: 1;
+}
+.country .icon {
+  transform-origin: center center;
+  transition: 0.2s;
+}
+.country .icon.open {
+  transform: rotateZ(180deg);
+}
+
+.country .country-option {
+  cursor: pointer;
+}
+.country .country-option:hover {
+  background-color: #ebebeb;
+}
+
+.shipping-form {
+  width: min(1000px, 98%);
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+}
+.shipping-form input {
+  padding: 0.6rem 1rem;
+  background-color: #f4f4f4;
+  border: none;
+  font-size: 1rem;
+  width: 320px;
+}
+.shipping-form input:focus {
+  border: none;
+  outline: none;
+}
+@media (max-width: 650px) {
+  .cart .titles,
+  .cart .item {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .cart .footer {
+    text-align: center;
+  }
+  .shipping-form {
+    align-items: center;
+  }
+  .shipping-form input {
+    width: 90%;
+  }
+}

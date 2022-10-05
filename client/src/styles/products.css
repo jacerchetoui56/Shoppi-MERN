@@ -1,0 +1,11 @@
+@import "styles.css";
+
+.products {
+  font-family: "Jost", sans-serif;
+  text-align: center;
+  padding: 2.5rem 0;
+}
+.products h1 {
+  font-size: 2rem;
+  color: var(--button-gray);
+}

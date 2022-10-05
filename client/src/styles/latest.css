@@ -1,0 +1,89 @@
+@import "styles.css";
+
+.latest {
+  padding: 3.5rem 0;
+  font-family: "Jost", sans-serif;
+  background-color: #f6f6f6;
+}
+.latest .container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.latest h1 {
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: var(--button-gray);
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.latest .main {
+  margin: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 01.5rem;
+}
+.latest .product {
+  width: 30%;
+}
+.latest .product img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.latest .product h4 {
+  font-weight: 400;
+  color: var(--medium-gray);
+  margin: 0.5rem 0;
+}
+.latest .product h2 {
+  font-weight: 500;
+  color: (--button-gray);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.latest .product:hover h2 {
+  color: var(--orange);
+}
+.latest .product p {
+  color: var(--medium-gray);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.latest .product button {
+  color: var(--dark-gray);
+  cursor: pointer;
+  font-family: "Jost", sans-serif;
+  border: none;
+  font-size: 1rem;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.latest .product button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 835px) {
+  .latest .main {
+    flex-wrap: wrap;
+  }
+  .latest .product {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .latest .main {
+    flex-direction: column;
+  }
+  .latest .product {
+    width: 90%;
+  }
+}
