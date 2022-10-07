@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../styles/trending.css'
 import TrendingCard from './TrendingCard'
 import Slider from "react-slick";

@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
     name: String,
     gender: {
         type: String,
-        enum: ['men', 'women', 'baby']
+        enum: ["men", "women", "baby"],
     },
     price: Number,
     image: String,
@@ -15,9 +15,9 @@ const productSchema = new mongoose.Schema({
     comments: [
         {
             name: String,
-            comment: String
-        }
-    ]
-})
+            comment: String,
+        },
+    ],
+});
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model("Product", productSchema);
