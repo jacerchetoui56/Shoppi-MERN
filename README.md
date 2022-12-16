@@ -1,2 +1,2 @@
 # Shoppi-MERN-
-[live website: ](https://shoppi.jacerchetoui.me)
+[live website! ](https://shoppi.jacerchetoui.me)
