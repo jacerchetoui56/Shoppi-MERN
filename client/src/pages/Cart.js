@@ -64,6 +64,29 @@ export default function Cart() {
     }
   }
 
+  async function checkout() {
+    const token = localStorage.getItem("token");
+    try {
+      const { data } = await axios.post(
+        "https://shoppi-server.onrender.com/api/v1/products/checkout",
+        {
+          items: cart,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (data) {
+        // redirect to the url in the response
+        window.location.href = data?.url;
+      }
+    } catch (error) {
+      navigate("/");
+    }
+  }
+
   return loading ? (
     <Loading />
   ) : (
@@ -171,11 +194,7 @@ export default function Cart() {
           Continue Shopping
         </button>
         {cart.length > 0 && (
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            Proceed to checkout
-          </button>
+          <button onClick={checkout}>Proceed to checkout</button>
         )}
       </div>
     </div>
