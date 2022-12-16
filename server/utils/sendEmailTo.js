@@ -36,4 +36,4 @@ async function main(receiver = "jacerdjo@gmail.com") {
 
 // main().catch(console.error);
 
-module.exports = main;
+module.exports = { main };
