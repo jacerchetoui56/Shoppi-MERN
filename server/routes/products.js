@@ -12,7 +12,8 @@ const {
     getCart,
     updateCart,
     getProduct,
-    addComment
+    addComment,
+    checkout
 } = require("../controllers/products");
 
 router.get("/", getAllproducts);
@@ -26,5 +27,6 @@ router
     .put(authMiddleware, addToCart)
     .get(authMiddleware, getCart)
     .patch(authMiddleware, updateCart);
+router.post('/checkout', authMiddleware, checkout)
 
 module.exports = router;

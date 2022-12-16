@@ -15,6 +15,8 @@ const getUserInfos = async (req, res) => {
 };
 
 const getAllproducts = async (req, res) => {
+
+
     const products = await Product.find({});
     if (!products) {
         throw new NotFoundError("No products Are Found");
@@ -75,6 +77,14 @@ const addToCart = async (req, res) => {
 };
 
 const getCart = async (req, res) => {
+    // ! if we have the parameter checkout=success than we will delete the data in the cart
+    // console.log(req.query)
+    // if (req.query.checkout_success === true) {
+    //     console.log('clearing the cart')
+    //     await User.findByIdAndUpdate(req.user.userId, {
+    //         cart: { $set: [] }
+    //     })
+    // }
     const user = await User.findById(req.user.userId);
     if (!user) {
         throw new BadRequestError("An error occured, Please try again later");
@@ -133,6 +143,57 @@ const addComment = async (req, res) => {
     res.status(StatusCodes.OK).json({ success: true, data: product.comments });
 };
 
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+
+const checkout = async (req, res) => {
+    const { items } = req.body
+    const { userId } = req.user
+    const itemsInDB = await Product.find({
+        _id: {
+            $in: items.map(item => `${item.id}`)
+        }
+    }).select('name price image')
+
+
+    const itemsToCheckout = itemsInDB.map((item, index) => {
+        return {
+            name: item.name,
+            image: item.image,
+            price: item.price,
+            quantity: items[index].amount
+        }
+    })
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            mode: 'payment',
+            line_items: itemsToCheckout.map(item => {
+                return {
+                    price_data: {
+                        currency: 'usd',
+                        product_data: {
+                            name: item.name,
+                            images: [item.image],
+                        },
+                        unit_amount: item.price * 100
+                    },
+                    quantity: item.quantity
+                }
+            }),
+            metadata: {
+                shoppi_user_id: userId,
+            },
+            success_url: `${process.env.CLIENT_URL}/`,
+            cancel_url: `${process.env.CLIENT_URL}/`
+        })
+        res.json({ url: session.url })
+    } catch (e) {
+        console.log(e.message)
+        throw new BadRequestError("Failed to checkout")
+    }
+}
+
+
 module.exports = {
     getUserInfos,
     getAllproducts,
@@ -144,4 +205,5 @@ module.exports = {
     updateCart,
     getProduct,
     addComment,
+    checkout
 };

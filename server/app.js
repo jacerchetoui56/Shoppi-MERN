@@ -14,6 +14,8 @@ const connectDB = require('./db/connect')
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
+const stripeRouter = require('./routes/stripe')
+app.use('/api/v1/webhook', stripeRouter)
 app.use(express.json());
 // security packages
 const xssClean = require('xss-clean')

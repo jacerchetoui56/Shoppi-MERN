@@ -1,7 +1,7 @@
 const User = require('../models/User.model')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthenticatedError } = require('../errors')
-
+const sendEmailTo = require('../utils/sendEmailTo')
 
 const register = async (req, res) => {
     const { name, email, password, confirmPassword } = req.body
@@ -14,6 +14,7 @@ const register = async (req, res) => {
     try {
         const user = await User.create({ name, email, password })
         const token = user.createJWT()
+        await sendEmailTo(user.email)
         res.status(StatusCodes.CREATED).json({ success: true, userName: user.name, count: user.cart.length, token })
     } catch (error) {
         throw new BadRequestError('User Already Exists')
