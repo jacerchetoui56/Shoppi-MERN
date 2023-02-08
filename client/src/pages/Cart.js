@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { useGlobalContext } from "../context";
-import { Link, useNavigate } from "react-router-dom";
-import "../styles/cart.css";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { BiConfused } from "react-icons/bi";
-import SelectionDropDown from "../components/SelectionDropDown";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { BiConfused } from "react-icons/bi";
+import { Link, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import SelectionDropDown from "../components/SelectionDropDown";
+import { useGlobalContext } from "../context";
+import "../styles/cart.css";
 
 export default function Cart() {
   const { loading, setLoading, cart, setCart, setCartCount } =
     useGlobalContext();
-
+  const [cartLoading, setCartLoading] = useState(false);
   const getData = async () => {
     const token = localStorage.getItem("token");
     try {
@@ -67,6 +67,7 @@ export default function Cart() {
   async function checkout() {
     const token = localStorage.getItem("token");
     try {
+      setCartLoading(true);
       const { data } = await axios.post(
         "https://shoppi-server.onrender.com/api/v1/products/checkout",
         {
@@ -84,6 +85,8 @@ export default function Cart() {
       }
     } catch (error) {
       navigate("/");
+    } finally {
+      setCartLoading(false);
     }
   }
 
@@ -196,6 +199,7 @@ export default function Cart() {
         {cart.length > 0 && (
           <button onClick={checkout}>Proceed to checkout</button>
         )}
+        {cartLoading && <div className="loader"></div>}
       </div>
     </div>
   );

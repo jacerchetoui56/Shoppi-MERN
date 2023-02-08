@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import "../styles/login.css";
-import { useNavigate, Link } from "react-router-dom";
-import { useGlobalContext } from "../context";
 import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../context";
+import "../styles/login.css";
 
 export default function Login() {
   const { pageChanged, setLoggedIn, setUser, setCartCount } =
@@ -12,12 +12,14 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   let navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const { data } = await axios.post(
         "https://shoppi-server.onrender.com/api/v1/auth/login",
         {
@@ -34,6 +36,8 @@ export default function Login() {
       }
     } catch (error) {
       setMessage({ class: "message bad-res", msg: error.response.data.msg });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -94,7 +98,10 @@ export default function Login() {
               </Link>{" "}
               here
             </div>
-            <button>Login</button>
+            <div className="button-loader">
+              {loading && <div className="loader"></div>}
+              <button>Login</button>
+            </div>
           </div>
         </form>
       </div>

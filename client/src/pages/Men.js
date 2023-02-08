@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/type.css";
-import SelectionDropDown from "../components/SelectionDropDown";
-import { Link } from "react-router-dom";
-import TrendingCard from "../components/TrendingCard";
+import React, { useEffect, useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
-import { useGlobalContext } from "../context";
+import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import SelectionDropDown from "../components/SelectionDropDown";
+import TrendingCard from "../components/TrendingCard";
+import { useGlobalContext } from "../context";
+import "../styles/type.css";
 
 export default function Man() {
   const { loading, setLoading } = useGlobalContext();

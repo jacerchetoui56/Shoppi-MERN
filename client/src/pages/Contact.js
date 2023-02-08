@@ -1,12 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/contact.css";
 import {
-  HiOutlineHome,
   HiOutlineDeviceTablet,
+  HiOutlineHome,
   HiOutlineMail,
 } from "react-icons/hi";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import "../styles/contact.css";
 
 export default function Contact() {
   const [message, setMessage] = useState({ class: "message", msg: "" });
@@ -17,6 +17,7 @@ export default function Contact() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
   function handleChange(e) {
     e.preventDefault();
     const { name, value } = e.target;
@@ -25,6 +26,7 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const { data } = await axios.post(
         "https://shoppi-server.onrender.com/api/v1/inbox",
         {
@@ -45,6 +47,8 @@ export default function Contact() {
     } catch (error) {
       setMessage({ class: "message bad-res", msg: error.response.data.msg });
       clearMessage();
+    } finally {
+      setLoading(false);
     }
   }
   function clearMessage() {
@@ -106,7 +110,10 @@ export default function Contact() {
               />
             </div>
             <span className={message.class}>{message.msg}</span>
-            <button>Send</button>
+            <div className="button-loader">
+              <button>Send</button>
+              {loading && <div className="loader"></div>}
+            </div>
           </form>
         </main>
         <aside>

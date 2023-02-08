@@ -102,6 +102,35 @@
   cursor: pointer;
 }
 
+/* .login-form > div:last-child {
+  display: flex;
+  gap: 0.75rem;
+} */
+
+.button-loader {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.loader {
+  border: 2px solid transparent;
+  border-top: 2px solid var(--orange);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 0.5s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .message {
   text-transform: capitalize;
   font-family: "Jost", sans-serif;

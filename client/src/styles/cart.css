@@ -120,7 +120,9 @@
 .cart .footer {
   width: min(1000px, 98%);
   margin: 1.5rem auto;
-  text-align: start;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .cart .footer button {
@@ -134,6 +136,10 @@
   color: white;
   border: none;
   margin-right: 1rem;
+}
+
+.cart .loader {
+  margin: 0;
 }
 
 .country .selected-option {

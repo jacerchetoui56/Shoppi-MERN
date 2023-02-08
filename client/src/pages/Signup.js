@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import "../styles/signup.css";
+import axios from "axios";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import axios from "axios";
+import "../styles/signup.css";
 
 export default function Signup() {
   const { pageChanged, setLoggedIn, setUser } = useGlobalContext();
@@ -13,6 +13,7 @@ export default function Signup() {
     password: "",
     confirmPassword: "",
   });
+  const [loading, setLoading] = useState(false);
   const confirmPssRef = useRef();
 
   let navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function Signup() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const { data } = await axios.post(
         "https://shoppi-server.onrender.com/api/v1/auth/register",
         {
@@ -35,6 +37,8 @@ export default function Signup() {
       }
     } catch (error) {
       setMessage({ class: "message bad-res", msg: error.response.data.msg });
+    } finally {
+      setLoading(false);
     }
   }
   function handleFormChange(e) {
@@ -113,7 +117,10 @@ export default function Signup() {
               </Link>{" "}
               here
             </div>
-            <button>Sign Up</button>
+            <div className="button-loader">
+              {loading && <div className="loader"></div>}
+              <button>Sign Up</button>
+            </div>
           </div>
         </form>
       </div>

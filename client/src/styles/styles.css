@@ -35,12 +35,17 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.loading span {
+  color: var(--orange);
+  font-family: "Jost", sans-serif;
 }
 .loading .spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
   border: solid 2px transparent;
@@ -49,6 +54,7 @@ a {
   border-radius: 50%;
   /* background-color: white; */
 }
+
 /* .loading img {
   position: absolute;
   top: 50%;
@@ -220,6 +226,10 @@ a {
   font-weight: 500;
   color: var(--dark-gray);
   text-transform: capitalize;
+  word-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
 }
 
 .nav .nav-buttons .logoutbtn {
@@ -465,6 +475,10 @@ a {
   }
   .header-top .right {
     display: none;
+  }
+
+  .loading span {
+    font-size: 1.5rem;
   }
 }
 
